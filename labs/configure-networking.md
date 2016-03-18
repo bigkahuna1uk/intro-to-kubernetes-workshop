@@ -63,41 +63,6 @@ gcloud compute ssh node1
 sudo iptables -t nat -A POSTROUTING ! -d 10.0.0.0/8 -o ens4v1 -j MASQUERADE
 ```
 
-## Validating Cross Host Container Networking
-
-### Terminal 1
-
-```
-gcloud compute ssh node0
-```
-```
-docker run -t -i --rm busybox /bin/sh
-```
-
-```
-ip -f inet addr show eth0
-```
-
-### Terminal 2
-
-```
-gcloud compute ssh node1
-```
-
-```
-docker run -t -i --rm busybox /bin/sh
-```
-
-```
-ping -c 3 10.200.0.2
-```
-
-```
-ping -c 3 google.com
-```
-
-Exit both busybox instances.
-
 > __TIP__: persist after reboots using
 ```
 sudo su -
@@ -135,3 +100,38 @@ reboot # for Test
 gcloud compute ssh node0
 sudo iptables -t nat -L -v
 ```
+
+## Validating Cross Host Container Networking
+
+### Terminal 1
+
+```
+gcloud compute ssh node0
+```
+```
+docker run -t -i --rm busybox /bin/sh
+```
+
+```
+ip -f inet addr show eth0
+```
+
+### Terminal 2
+
+```
+gcloud compute ssh node1
+```
+
+```
+docker run -t -i --rm busybox /bin/sh
+```
+
+```
+ping -c 3 10.200.0.2
+```
+
+```
+ping -c 3 google.com
+```
+
+Exit both busybox instances.
