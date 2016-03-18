@@ -33,9 +33,9 @@ gcloud compute instances create node1 \
 ```
 gcloud compute instances list
 ```
-> __TIP__: to save GCE billing you can stop the servers and restart another time.
+> __TIP__: to save on GCE bills you can stop the servers and restart them another time.
 ```
 gcloud compute instances stop node0 node1
 gcloud compute instances start node0 node1
 ```
-To make iptables rules persists after reboots, save them to /var/lib/iptables/rules-save, see configure-networking.md
+To make iptables rules persists after reboots see TIP at end of configure-networking.md
