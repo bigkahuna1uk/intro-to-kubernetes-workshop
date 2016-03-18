@@ -10,6 +10,7 @@ Open a second Terminal/Console
 ```
 gcloud compute ssh node0
 ```
+If the node ask for a password, then you connected too quick after booting the node. Press `^c` and try again. For troubleshooting, logs can be found in the [GCE console](https://console.cloud.google.com/compute/instances), then click on the name of a node, scroll all the way down and click on _Serial console output_.
 
 ### Create the docker systemd unit file
 
@@ -103,7 +104,7 @@ sudo systemctl start docker
 ```
 ip addr show docker0
 ```
-Notice that Node`1` gives out ip-addresses in the range 10.200.`1`.0/24 which don't overlap with node0.
+Notice that node`1` gives out ip-addresses in the range 10.200.`1`.0/24 which doesn't overlap with node0.
 
 ```
 docker version
