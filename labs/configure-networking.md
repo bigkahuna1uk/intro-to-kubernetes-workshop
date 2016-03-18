@@ -22,6 +22,7 @@ gcloud compute routes list
 ```
 
 ## Allow external access to the API server secure port
+![](images/GCE-routing.png?raw=true)
 
 ```
 gcloud compute firewall-rules create default-allow-kubernetes-secure \
