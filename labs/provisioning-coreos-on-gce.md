@@ -11,7 +11,7 @@ In this lab you will provision two GCE instances running CoreOS.
 ```
 gcloud compute instances create node0 \
  --image-project coreos-cloud \
- --image coreos-stable-835-12-0-v20160202 \
+ --image coreos-beta-899-11-0-v20160317 \
  --boot-disk-size 200GB \
  --machine-type n1-standard-1 \
  --can-ip-forward
@@ -22,7 +22,7 @@ gcloud compute instances create node0 \
 ```
 gcloud compute instances create node1 \
  --image-project coreos-cloud \
- --image coreos-stable-835-12-0-v20160202 \
+ --image coreos-beta-899-11-0-v20160317 \
  --boot-disk-size 200GB \
  --machine-type n1-standard-1 \
  --can-ip-forward
@@ -33,3 +33,9 @@ gcloud compute instances create node1 \
 ```
 gcloud compute instances list
 ```
+> __TIP__: to save GCE billing you can stop the servers and restart another time.
+```
+gcloud compute instances stop node0 node1
+gcloud compute instances start node0 node1
+```
+To make iptables rules persists after reboots, save them to /var/lib/iptables/rules-save, see configure-networking.md
