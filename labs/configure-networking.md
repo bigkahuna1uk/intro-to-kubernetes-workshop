@@ -97,7 +97,7 @@ reboot # for Test
 
 > verify SNAT persists
 ```
-gcloud compute ssh node0
+gcloud compute ssh node # 0 or 1
 sudo iptables -t nat -L -v
 ```
 
